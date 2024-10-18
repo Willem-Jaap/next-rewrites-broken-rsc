@@ -25,9 +25,6 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18
     version: 18.0.0
-  eslint:
-    specifier: ^9.12.0
-    version: 9.12.0
   eslint-config-next:
     specifier: 15.0.0-canary.197
     version: 15.0.0-canary.197(eslint@9.12.0)(typescript@5.0.2)
@@ -940,6 +937,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
 
   /color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
