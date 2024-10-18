@@ -24,7 +24,7 @@ const blogs: Blog[] = [
         title: "Blog 3",
         content: "Content of blog 3",
     },
-] as const;
+];
 
 const getBlog = async (slug: string): Promise<Blog | undefined> => {
     // Fake promise to simulate fetching data from an API
