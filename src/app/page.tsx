@@ -1,6 +1,8 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getBlogs } from "~/data/get-blog";
 
-export default function Home() {
+const Page = async () => {
+    const blogs = await getBlogs();
     return (
         <div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
             <main className='flex flex-col gap-6 row-start-2 items-center sm:items-start'>
@@ -18,15 +20,25 @@ export default function Home() {
                 </p>
                 <ol className='list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]'>
                     <li className='mb-2'>
-                        Get started by editing{" "}
-                        <code className='bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold'>
-                            src/app/page.tsx
-                        </code>
-                        .
+                        Click on one of the following buttons and see the page hard refresh because there is a 404 on
+                        the RSC client side navigation:
+                        <div className='flex flex-wrap gap-1 mt-2'>
+                            {blogs.map((blog) => (
+                                <Link
+                                    key={blog.id}
+                                    href={`/blog/${blog.slug}`}
+                                    className='inline-block px-2 py-1 text-sm text-white bg-blue-500 rounded-md'
+                                >
+                                    {blog.title}
+                                </Link>
+                            ))}
+                        </div>
                     </li>
                     <li>Save and see your changes instantly.</li>
                 </ol>
             </main>
         </div>
     );
-}
+};
+
+export default Page;
